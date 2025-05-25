@@ -5,6 +5,11 @@ from models.predictor_lluvia import entrenar_modelo
 
 estadistica_bp = Blueprint('estadistica', __name__)
 
+@estadistica_bp.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
+
 @estadistica_bp.route('/estadistica', methods=['GET'])
 def mostrar_formulario():
     return render_template('estadistica_form.html')

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Subir CSV para Estadísticas</title>
+</head>
+<body>
+  <h1>Subir CSV de lluvia</h1>
+  <form id="form-csv" enctype="multipart/form-data">
+    <input type="file" id="archivo_csv" name="archivo_csv" accept=".csv,.xls,.xlsx" required />
+    <button type="submit">Enviar</button>
+  </form>
+
+  <div id="resultado" style="margin-top: 20px;"></div>
+
+  <script src="{{ url_for('static', filename='js/estadistica.js') }}"></script>
+</body>
+</html>

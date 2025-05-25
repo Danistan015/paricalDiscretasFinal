@@ -1,0 +1,16 @@
+<!-- Vista formulario de subida -->
+<div id="view-upload" class="d-none">
+  <h1>Subir CSV de lluvia</h1>
+  <form id="form-csv" enctype="multipart/form-data" class="mb-3">
+    <input type="file" id="archivo_csv" name="archivo_csv" accept=".csv,.xls,.xlsx" required class="form-control" />
+    <button type="submit" class="btn btn-primary mt-2">Enviar</button>
+  </form>
+  <div id="resultado" style="margin-top: 20px;"></div>
+</div>
+
+<!-- Vista datos y tabla -->
+<div id="view-datos" class="d-none">
+  <h1>Datos de lluvia</h1>
+  <div id="estadisticas"></div>
+  <div id="tabla-datos" style="margin-top: 20px; overflow-x: auto;"></div>
+</div>

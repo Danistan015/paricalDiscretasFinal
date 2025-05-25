@@ -1,0 +1,24 @@
+<!-- templates/dashboard_views.html -->
+
+<!-- Vista de subir archivo -->
+<div id="view-upload">
+  <h2>Subir CSV de Lluvia</h2>
+  <form id="form-csv" enctype="multipart/form-data" class="mb-3">
+    <input type="file" id="archivo_csv" name="archivo_csv" accept=".csv,.xls,.xlsx" required class="form-control mb-2" />
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+  <div id="resultado"></div>
+</div>
+
+<!-- Vista para mostrar datos -->
+<div id="view-datos" class="d-none">
+  <h2>Datos Cargados</h2>
+
+  <div id="estadisticas" class="mb-4">
+    <!-- Aquí se mostrarán las estadísticas -->
+  </div>
+
+  <div id="tabla-datos">
+    <!-- Aquí se generará la tabla con registros -->
+  </div>
+</div>

@@ -1,20 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <title>Subir CSV para Estadísticas</title>
+  <title>🌧️ Análisis de Lluvia | Dashboard Encantador</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/estadistica.css') }}">
-
 </head>
+
 <body>
-  <h1>Subir CSV de lluvia</h1>
-  <form id="form-csv" enctype="multipart/form-data">
-    <input type="file" id="archivo_csv" name="archivo_csv" accept=".csv,.xls,.xlsx" required />
-    <button type="submit">Enviar</button>
-  </form>
+  <div class="container">
+    <h1><i class="fas fa-cloud-rain"></i> Análisis de Datos de Lluvia</h1>
+
+    <div class="upload-card water-effect">
+      <div class="upload-icon">
+        <i class="fas fa-cloud-upload-alt"></i>
+      </div>
+      <form id="form-csv" enctype="multipart/form-data">
+        <div class="file-input-wrapper">
+          <label for="archivo_csv" class="file-input-label">
+            <i class="fas fa-file-csv"></i>
+            <span>Selecciona tu archivo CSV</span>
+            <small>Formatos soportados: .csv, .xls, .xlsx</small>
+          </label>
+          <input type="file" id="archivo_csv" name="archivo_csv" accept=".csv,.xls,.xlsx" required />
+        </div>
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-chart-bar"></i> Generar Estadísticas
+        </button>
+      </form>
+    </div>
+    <div id="prediccion-section" class="prediction-card hidden">
+      <h2><i class="fas fa-magic"></i> Predictor de Lluvia</h2>
+      <div class="prediction-form">
+        <div class="form-group">
+          <label for="fecha-prediccion"><i class="far fa-calendar-alt"></i> Selecciona una fecha:</label>
+          <input type="date" id="fecha-prediccion" class="date-input">
+        </div>
+        <!-- Añadir esto dentro de #prediccion-section -->
+        <div class="form-group">
+          <label for="ciudad"><i class="fas fa-city"></i> Ciudad:</label>
+          <input type="text" id="ciudad" class="date-input" placeholder="Ej: Madrid,ES" required>
+        </div>
+        <button id="predecir-btn" class="predict-btn">
+          <i class="fas fa-cloud-sun-rain"></i> Predecir Lluvia
+        </button>
+      </div>
+      <div id="resultado-prediccion" class="prediction-result"></div>
+    </div>
+  </div>
 
   <div id="resultado"></div>
 
+  <!-- Sección de Predicción -->
+
+
   <script src="{{ url_for('static', filename='js/estadistica.js') }}"></script>
 </body>
+
 </html>

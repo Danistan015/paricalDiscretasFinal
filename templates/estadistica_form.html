@@ -13,45 +13,49 @@
   <div class="container">
     <h1><i class="fas fa-cloud-rain"></i> Análisis de Datos de Lluvia</h1>
 
-    <div class="upload-card water-effect">
-      <div class="upload-icon">
-        <i class="fas fa-cloud-upload-alt"></i>
+    <div class="content-row" style="display: flex; gap: 2rem;">
+      <div class="upload-card water-effect" style="flex: 1;">
+        <!-- Aquí va tu formulario de subir archivo -->
+        <div class="upload-icon">
+          <i class="fas fa-cloud-upload-alt"></i>
+        </div>
+        <form id="form-csv" enctype="multipart/form-data">
+          <div class="file-input-wrapper">
+            <label for="archivo_csv" class="file-input-label">
+              <i class="fas fa-file-csv"></i>
+              <span>Selecciona tu archivo CSV</span>
+              <small>Formatos soportados: .csv, .xls, .xlsx</small>
+            </label>
+            <input type="file" id="archivo_csv" name="archivo_csv" accept=".csv,.xls,.xlsx" required />
+          </div>
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-chart-bar"></i> Generar Estadísticas
+          </button>
+        </form>
       </div>
-      <form id="form-csv" enctype="multipart/form-data">
-        <div class="file-input-wrapper">
-          <label for="archivo_csv" class="file-input-label">
-            <i class="fas fa-file-csv"></i>
-            <span>Selecciona tu archivo CSV</span>
-            <small>Formatos soportados: .csv, .xls, .xlsx</small>
-          </label>
-          <input type="file" id="archivo_csv" name="archivo_csv" accept=".csv,.xls,.xlsx" required />
+
+      <div id="prediccion-section" class="prediction-card" style="flex: 1;">
+        <h2><i class="fas fa-magic"></i> Predictor de Lluvia</h2>
+        <div class="prediction-form">
+          <div class="form-group">
+            <label for="fecha-prediccion"><i class="far fa-calendar-alt"></i> Selecciona una fecha:</label>
+            <input type="date" id="fecha-prediccion" class="date-input">
+          </div>
+          <div class="form-group">
+            <label for="ciudad"><i class="fas fa-city"></i> Ciudad:</label>
+            <input type="text" id="ciudad" class="date-input" placeholder="Ej: Madrid,ES" required>
+          </div>
+          <button id="predecir-btn" class="predict-btn">
+            <i class="fas fa-cloud-sun-rain"></i> Predecir Lluvia
+          </button>
         </div>
-        <button type="submit" class="submit-btn">
-          <i class="fas fa-chart-bar"></i> Generar Estadísticas
-        </button>
-      </form>
-    </div>
-    <div id="prediccion-section" class="prediction-card hidden">
-      <h2><i class="fas fa-magic"></i> Predictor de Lluvia</h2>
-      <div class="prediction-form">
-        <div class="form-group">
-          <label for="fecha-prediccion"><i class="far fa-calendar-alt"></i> Selecciona una fecha:</label>
-          <input type="date" id="fecha-prediccion" class="date-input">
-        </div>
-        <!-- Añadir esto dentro de #prediccion-section -->
-        <div class="form-group">
-          <label for="ciudad"><i class="fas fa-city"></i> Ciudad:</label>
-          <input type="text" id="ciudad" class="date-input" placeholder="Ej: Madrid,ES" required>
-        </div>
-        <button id="predecir-btn" class="predict-btn">
-          <i class="fas fa-cloud-sun-rain"></i> Predecir Lluvia
-        </button>
+        <div id="resultado-prediccion" class="prediction-result"></div>
       </div>
-      <div id="resultado-prediccion" class="prediction-result"></div>
     </div>
+
+    <div id="resultado"></div>
   </div>
 
-  <div id="resultado"></div>
 
   <!-- Sección de Predicción -->
 
